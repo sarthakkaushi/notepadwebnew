@@ -16,7 +16,7 @@ app.use(cors())
         const db = require('./models/notepad')
 
 app.use(express.static(path.join(__dirname, 'client')));
-app.use(express.static(path.join(__dirname, 'public')));
+
 
 app.get('/api/notes',(req,res)=>{
   
