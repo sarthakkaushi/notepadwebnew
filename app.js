@@ -18,10 +18,6 @@ app.use(cors())
 app.use(express.static(path.join(__dirname, 'client')));
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.get('/',(req,res)=>{
-    res.render("index")
-})
-
 app.get('/api/notes',(req,res)=>{
   
     db.Notepad.find({}).then((r)=>{
@@ -101,6 +97,7 @@ function getidbyslug(slug){
     return r[0]._id
   })
 }
+console.log(process.env.NODE_ENV)
 if (process.env.NODE_ENV === 'production') {
   // Set static folder
   app.use(express.static('client/build'));
